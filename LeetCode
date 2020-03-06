@@ -1,0 +1,25 @@
+class Solution 
+{
+    public int firstUniqChar(String s) 
+    {
+        int count = 0;
+        while(count < s.length() - 1)
+        {
+            for(int num = 1; num <= s.length() - 1; num++)
+            {
+                if(s.substring(count, count + 1).equals(s.substring(num, num + 1)))
+                {
+                    count++;
+                    num--;
+                }
+                
+                if(num == s.length() - 2)
+                {
+                    return count;
+                }
+            }
+        }
+        
+        return -1;
+    }
+}
